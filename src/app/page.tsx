@@ -3,7 +3,8 @@ export default function Home() {
     <div
       className="flex flex-col items-center justify-items-center
       font-[family-name:var(--font-geist-sans)] bg-black p-0 w-screen 
-      h-[calc(100vh-6rem)] bg-[url(https://picsum.photos/id/444/1999/1328?grayscale)] bg-cover"
+      h-[calc(100vh-6rem)]  bg-cover bg-center bg-[url(https://picsum.photos/id/444/600/400?grayscale)] sm:bg-[url('https://picsum.photos/id/444/800/600?grayscale')] 
+            lg:bg-[url('https://picsum.photos/id/444/1200/800?grayscale')]"
     >
       <div className="flex flex-col text-white items-center sm:items-start sm:pl-[20vw] mt-[17vh] gap-y-4 w-full h-full">
         <span className="text-5xl">Niki Qin</span>
