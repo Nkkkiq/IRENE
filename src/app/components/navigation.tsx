@@ -54,7 +54,9 @@ const Navbar = () => {
       >
         {/* Mobile Logo */}
         <h1 className="w-full text-3xl font-bold text-white m-4">
-          <Link href="/">{siteTitle} </Link>
+          <Link href="/" onClick={() => handleNav(false)}>
+            {siteTitle}{" "}
+          </Link>
         </h1>
 
         {/* Mobile Navigation Items */}
@@ -63,7 +65,9 @@ const Navbar = () => {
             key={item.id}
             className="p-4 rounded-xl hover:text-[#f2d5a0] duration-300 cursor-pointer"
           >
-            <Link href={item.link}>{item.text}</Link>
+            <Link href={item.link} onClick={() => handleNav(false)}>
+              {item.text}
+            </Link>
           </li>
         ))}
       </ul>

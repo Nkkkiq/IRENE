@@ -1,21 +1,21 @@
 "use client";
 
 export default function Contact() {
-  const email = "ed22c15d14667f27c57fa89d9c160a2c";
+  const email = "ed22c15d14667f27c57fa89d9c160a2c"; // formSubmit random string for email
+
   return (
-    <div className="flex flex-col items-center justify-items-center">
-      <div className="flex w-full px-20">
-        <div className="flex flex-col flex-1 gap-y-10 p-10 text-white">
-          <span className="text-5xl text-white">Contact</span>
+    <div className="flex items-center justify-items-center pb-5">
+      <div className="flex w-full flex-col sm:flex-row">
+        <div className="flex-1 text-white p-5 sm:p-10">
+          <span className="text-5xl">Contact</span>
         </div>
 
-        <section className="flex-1 p-10">
+        <section className="flex-1 p-5 sm:p-10">
           <div className="max-w-screen-sm">
             <form
               action={`https://formsubmit.co/${email}`}
               method="POST"
               className="text-white space-y-8 group"
-              noValidate
             >
               <div className="flex gap-x-5">
                 <input type="hidden" name="_template" value="table" />
@@ -29,9 +29,9 @@ export default function Contact() {
                       type="text"
                       id="firstName"
                       name="firstName"
-                      className="text-sm  block w-full p-2.5 bg-transparent no-underline border-b border-white outline-none invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 peer"
+                      className="text-sm block w-full p-2.5 bg-transparent no-underline border-b border-white outline-none invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 peer"
                       required
-                      placeholder=""
+                      placeholder=" "
                       pattern="[A-Za-z\s]+"
                     />
                     <span className="mt-2 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
@@ -50,7 +50,7 @@ export default function Contact() {
                       type="text"
                       id="lastName"
                       name="lastName"
-                      placeholder=""
+                      placeholder=" "
                       className="shadow-sm  text-sm  block w-full p-2.5 bg-transparent no-underline  border-b border-white outline-none invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 peer"
                       required
                       pattern="[A-Za-z\s]+"
@@ -72,7 +72,7 @@ export default function Contact() {
                       className="shadow-sm text-sm  bg-transparent no-underline block w-full p-2.5 border-b border-white outline-none invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 peer"
                       placeholder=" "
                       required
-                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                      pattern="([A-Za-z0-9][._]?)+[A-Za-z0-9]@[A-Za-z0-9]+(\.?[A-Za-z0-9]){2}\.(com?|net|org)+(\.[A-Za-z0-9]{2,4})?"
                     />
                     <span className="mt-2 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
                       Please enter a valid email address
@@ -108,7 +108,7 @@ export default function Contact() {
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  className="py-3 px-10 text-sm font-medium text-center text-white border border-white sm:w-fit hover:bg-primary-800 group-invalid:pointer-events-none group-invalid:opacity-50"
+                  className="w-full py-3 px-10 text-sm font-medium text-center text-white border border-white sm:w-fit hover:bg-primary-800 group-invalid:pointer-events-none group-invalid:opacity-50"
                 >
                   Submit
                 </button>
