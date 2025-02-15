@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { X, Menu } from "lucide-react";
 
 const Navbar = () => {
@@ -14,13 +15,17 @@ const Navbar = () => {
 
   // Array containing navigation items
   const navItems = ["Portfolio", "About", "Contact"].map((item, index) => {
-    return { id: index, text: item };
+    return { id: index, text: item, link: `/${item.toLowerCase()}` };
   });
+
+  const siteTitle = "NK";
 
   return (
     <div className="bg-black flex justify-between items-center h-24 mx-auto px-4 text-white w-full ">
       {/* Logo */}
-      <h1 className="w-full text-3xl ">NK</h1>
+      <h1 className="w-full text-3xl ">
+        <Link href="/">{siteTitle} </Link>
+      </h1>
 
       {/* Desktop Navigation */}
       <ul className="hidden md:flex">
@@ -29,34 +34,36 @@ const Navbar = () => {
             key={item.id}
             className="p-4 hover:text-[#f2d5a0] rounded-xl m-2 cursor-pointer duration-300"
           >
-            {item.text}
+            <Link href={item.link}>{item.text}</Link>
           </li>
         ))}
       </ul>
 
       {/* Mobile Navigation Icon */}
       <div onClick={handleNav} className="block md:hidden">
-        {nav ? <X size={20} /> : <Menu size={20} />}
+        {nav ? <X size={30} /> : <Menu size={30} />}
       </div>
 
       {/* Mobile Navigation Menu */}
       <ul
         className={
           nav
-            ? "fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500"
+            ? "fixed md:hidden left-0 top-0 w-[60%] h-full  bg-[#000300] ease-in-out duration-500"
             : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
         }
       >
         {/* Mobile Logo */}
-        <h1 className="w-full text-3xl font-bold text-white m-4">NK</h1>
+        <h1 className="w-full text-3xl font-bold text-white m-4">
+          <Link href="/">{siteTitle} </Link>
+        </h1>
 
         {/* Mobile Navigation Items */}
         {navItems.map((item) => (
           <li
             key={item.id}
-            className="p-4 border-b rounded-xl hover:bg-[#f2d5a0] duration-300 hover:text-black cursor-pointer border-gray-600"
+            className="p-4 rounded-xl hover:text-[#f2d5a0] duration-300 cursor-pointer"
           >
-            {item.text}
+            <Link href={item.link}>{item.text}</Link>
           </li>
         ))}
       </ul>

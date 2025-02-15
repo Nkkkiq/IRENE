@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Navigation from "@/components/navigation";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,12 +23,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const year = new Date().getFullYear();
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black relative w-screen min-h-screen`}
       >
+        <Navigation />
         {children}
+        <footer className="flex text-white text-xs py-5 absolute bottom-0 pl-10">
+          <p>&copy; {year} Niki Qin. All Rights Reserved.</p>
+        </footer>
       </body>
     </html>
   );
