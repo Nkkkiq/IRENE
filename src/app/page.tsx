@@ -1,3 +1,6 @@
+import Link from "next/link";
+import Button from "./components/button";
+
 export default function Home() {
   return (
     <div
@@ -9,6 +12,12 @@ export default function Home() {
       <div className="flex flex-col text-white items-center sm:items-start sm:pl-[20vw] mt-[17vh] gap-y-4 w-full h-full">
         <span className="text-5xl">Niki Qin</span>
         <span className="text-xl tracking-[0.5rem]">PHOTOGRAPHY</span>
+
+        <div className="mt-3">
+          <Link href="/projects">
+            <Button text="View My Projects" />
+          </Link>
+        </div>
       </div>
     </div>
   );
