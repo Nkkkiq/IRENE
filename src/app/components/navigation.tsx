@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { X, Menu } from "lucide-react";
-
 const Navbar = () => {
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
@@ -12,6 +12,8 @@ const Navbar = () => {
   const handleNav = () => {
     setNav(!nav);
   };
+
+  const pathname = usePathname();
 
   // Array containing navigation items
   const navItems = ["Projects", "About", "Contact"].map((item, index) => {
@@ -29,14 +31,18 @@ const Navbar = () => {
 
       {/* Desktop Navigation */}
       <ul className="hidden md:flex">
-        {navItems.map((item) => (
-          <li
-            key={item.id}
-            className="p-4 hover:text-[#f2d5a0] rounded-xl m-2 cursor-pointer duration-300"
-          >
-            <Link href={item.link}>{item.text}</Link>
-          </li>
-        ))}
+        {navItems.map((item) => {
+          return (
+            <li
+              key={item.id}
+              className={`p-4 hover:text-[#f2d5a0] m-2 cursor-pointer duration-300 ${
+                item.link === pathname ? "text-[#f2d5a0]" : ""
+              }`}
+            >
+              <Link href={item.link}>{item.text}</Link>
+            </li>
+          );
+        })}
       </ul>
 
       {/* Mobile Navigation Icon */}
