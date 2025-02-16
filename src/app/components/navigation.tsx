@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   // Array containing navigation items
-  const navItems = ["Portfolio", "About", "Contact"].map((item, index) => {
+  const navItems = ["Projects", "About", "Contact"].map((item, index) => {
     return { id: index, text: item, link: `/${item.toLowerCase()}` };
   });
 
